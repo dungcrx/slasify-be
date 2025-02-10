@@ -68,10 +68,11 @@ public class MessageServiceImpl implements MessageService {
             msg.setPostingTime(message.getPostingTime());
 
             List<CommentRes> commentDTOs = new ArrayList<>();
-            List<Comment> comments = commentRepository.findByMessageIdOrderByPostingTimeAsc(message.getId());
+            List<Comment> comments = message.getComments();
 
             for (Comment comment : comments) {
-                commentDTOs.add(CommentUtil.buildCommentDTO(comment));
+                if(comment.getParentComment() == null)
+                    commentDTOs.add(CommentUtil.buildCommentDTO(comment));
             }
 
             msg.setComments(commentDTOs);

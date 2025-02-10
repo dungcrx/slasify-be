@@ -23,7 +23,10 @@ public class CommentServiceImpl implements CommentService {
     private final CommentRepository commentRepository;
     private final UserRepository userRepository;
     @Override
-    public CommentRes postComment(Long messageId, Long parentCommentId, String content, Long userId) {
+    public CommentRes postComment(Long messageId,
+                                  Long parentCommentId,
+                                  String content,
+                                  Long userId) {
         Message message = messageRepository.findById(messageId)
                 .orElseThrow(() -> new IllegalArgumentException("Message not found"));
 

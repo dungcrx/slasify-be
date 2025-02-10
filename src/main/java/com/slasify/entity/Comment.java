@@ -1,5 +1,6 @@
 package com.slasify.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -31,6 +32,7 @@ public class Comment {
     private Message message;
 
     @OneToMany(mappedBy = "parentComment", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Comment> replies = new ArrayList<>();
 
     @ManyToOne
