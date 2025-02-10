@@ -30,10 +30,12 @@ public class AuthServiceImpl  implements AuthService {
             throw new IllegalArgumentException("Password could not be empty");
         }
 
-        if (userRepository.existsByUsername(userRegisterReq.getUserName())) {
+        if (StringUtils.isNotEmpty(userRegisterReq.getUserName())
+                &&  userRepository.existsByUsername(userRegisterReq.getUserName())) {
             throw new IllegalArgumentException("Username is already taken");
         }
-        if (userRepository.existsByEmail(userRegisterReq.getEmail())) {
+        if (StringUtils.isNotEmpty(userRegisterReq.getEmail())
+                && userRepository.existsByEmail(userRegisterReq.getEmail())) {
             throw new IllegalArgumentException("Email is already registered");
         }
 
