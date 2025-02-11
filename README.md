@@ -5,7 +5,6 @@ A web-based messaging platform built with Spring Boot, offering real-time commun
 ## Features
 
 - **User Authentication**: Secure login and registration.
-- **Real-Time Messaging**: Instant communication between users.
 - **Message Persistence**: All messages are stored in a database for future retrieval.
 - **Remember Me**: Option to stay logged in across sessions.
 - **Public Message Viewing**: Non-logged-in users can view messages.
