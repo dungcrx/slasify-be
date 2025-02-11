@@ -3,6 +3,7 @@ package com.slasify.utils;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
@@ -11,6 +12,7 @@ import javax.crypto.SecretKey;
 import java.util.Date;
 
 @Component
+@Data
 public class JwtUtil {
 
     @Value("${jwt.secret}")
@@ -27,7 +29,7 @@ public class JwtUtil {
         return Keys.hmacShaKeyFor(secretKey.getBytes());
     }
 
-    public String generateToken(final String username, final boolean rememberMe) {
+    public  String generateToken(final String username, final boolean rememberMe) {
 
         long expirationTime = rememberMe ? REMEMBER_ME_EXPIRATION_TIME : STANDARD_EXPIRATION_TIME;
 

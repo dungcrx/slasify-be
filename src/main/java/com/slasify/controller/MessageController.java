@@ -49,10 +49,7 @@ public class MessageController {
         if (username == null) {
             throw new IllegalStateException("User not authenticated");
         }
-
-        messagingTemplate.convertAndSend(
-                "/topic/messages",
-                messageService.postMessage(content, requestInfo.getUserId() ));
+        messageService.postMessage(content, requestInfo.getUserId());
         return ResponseEntity.ok("Message posted");
     }
 

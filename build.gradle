@@ -12,7 +12,11 @@ java {
 		languageVersion = JavaLanguageVersion.of(21)
 	}
 }
-
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.boot:spring-boot-dependencies:3.3.8"
+	}
+}
 repositories {
 	mavenCentral()
 }
@@ -35,8 +39,11 @@ dependencies {
 	implementation 'org.apache.commons:commons-lang3:3.17.0'
 
 
-
+	// TEST
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'org.springframework.security:spring-security-test:6.3.4'
+	testImplementation 'org.springframework:spring-test:6.1.14'
+
 }
 
 tasks.named('test') {

@@ -40,8 +40,8 @@ public class AuthServiceImpl  implements AuthService {
         }
 
         User user = User.builder()
-                .username(userRegisterReq.getUserName())
-                .email(userRegisterReq.getEmail())
+                .username(StringUtils.isNotEmpty(userRegisterReq.getUserName()) ? userRegisterReq.getUserName() : null)
+                .email(StringUtils.isNotEmpty(userRegisterReq.getEmail()) ? userRegisterReq.getEmail() : null)
                 .passwordHash(passwordEncoder.encode(userRegisterReq.getPasswordHash())) // Hash the password before saving
                 .build();
 

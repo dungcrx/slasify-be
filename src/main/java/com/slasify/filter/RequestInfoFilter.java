@@ -5,7 +5,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletRequest;
 import jakarta.servlet.ServletResponse;
 import jakarta.servlet.http.HttpServletRequest;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.GenericFilterBean;
 
@@ -14,9 +14,9 @@ import java.util.List;
 
 
 @Component
+@RequiredArgsConstructor
 public class RequestInfoFilter extends GenericFilterBean {
-    @Autowired private RequestInfoImpl requestInfo;
-
+    private final RequestInfoImpl requestInfo;
     List<String> apiUnAuth = List.of("/register", "/h2-console", "/login","/messages/all");
 
     @Override
