@@ -20,14 +20,17 @@ A web-based messaging platform built with Spring Boot, offering real-time commun
 ./gradlew clean bootJar
 java -jar  build/libs/slasify.jar
 http://localhost:8080
+
+
 ### List Curl
+
 
 curl --location --request POST 'http://localhost:8080/auth/register' \
 --header 'Content-Type: application/json' \
 --data-raw '{
 "userName": "dungphan",
 "email": null,
-"passwordHash": "6f0f700d5949002af015d24e753df80e385b73d7ecf114ad53023c7f7349a870"
+"passwordHash": "Phandung88"
 }'
 ####
 
@@ -37,7 +40,7 @@ curl --location --request POST 'http://localhost:8080/auth/login' \
 --header 'Content-Type: application/json' \
 --data-raw '{
 "identifier": "dungphan",
-"password": "6f0f700d5949002af015d24e753df80e385b73d7ecf114ad53023c7f7349a870",
+"password": "Phandung88",
 "rememberMe": true
 }'
 
@@ -45,35 +48,36 @@ curl --location --request POST 'http://localhost:8080/auth/login' \
 ########
 curl --location --request POST 'http://localhost:8080/messages/post'  \
 -H "Content-Type: application/json" \
--H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkdW5ncGhhbiIsImlhdCI6MTczOTExOTUzMCwiZXhwIjoxNzQxNzExNTMwfQ.JwhF-fuguv0sxkw8dxGHz8gfz2A9oM272RpDEsobtzo" \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkdW5ncGhhbiIsImlhdCI6MTczOTIwNDQ5NywiZXhwIjoxNzQxNzk2NDk3fQ.SQWUuSge2SmyTQeq2zl2SKlO-zibxDPJEb1htLXMKQ0" \
 -d '{
-"content": "Your message content 2"
+"content": "He expects candidates to know their primary backend language inside and out 2"
 }'
 
 #####
 
 
 curl --location --request GET 'http://localhost:8080/messages/all'  \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.09999.SQWUuSge2SmyTQeq2zl2SKlO-zibxDPJEb1htLXMKQ0" \
 -H "Content-Type: application/json" \
 
 #####
 
 curl --location --request POST 'http://localhost:8080/comments'\
 -H "Content-Type: application/json" \
--H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkdW5ncGhhbiIsImlhdCI6MTczOTExOTUzMCwiZXhwIjoxNzQxNzExNTMwfQ.JwhF-fuguv0sxkw8dxGHz8gfz2A9oM272RpDEsobtzo" \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkdW5ncGhhbiIsImlhdCI6MTczOTIwNDQ5NywiZXhwIjoxNzQxNzk2NDk3fQ.SQWUuSge2SmyTQeq2zl2SKlO-zibxDPJEb1htLXMKQ0" \
 -d '{
 "messageId": 1,
-"parentCommentId": 1,
-"content": "comment on msg 2"
+"parentCommentId": null,
+"content": "comment on msg 1"
 }'
 
 #####
 
 curl --location --request POST 'http://localhost:8080/comments'\
 -H "Content-Type: application/json" \
--H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkdW5ncGhhbiIsImlhdCI6MTczOTExOTUzMCwiZXhwIjoxNzQxNzExNTMwfQ.JwhF-fuguv0sxkw8dxGHz8gfz2A9oM272RpDEsobtzo" \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkdW5ncGhhbiIsImlhdCI6MTczOTIwNDQ5NywiZXhwIjoxNzQxNzk2NDk3fQ.SQWUuSge2SmyTQeq2zl2SKlO-zibxDPJEb1htLXMKQ0" \
 -d '{
 "messageId": 1,
-"parentCommentId": 2,
-"content": "comment on msg 5"
+"parentCommentId": 3,
+"content": "reply on reply 3"
 }'
