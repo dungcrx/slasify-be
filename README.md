@@ -18,7 +18,8 @@ A web-based messaging platform built with Spring Boot, offering real-time commun
 
 ## Getting Started
 ./gradlew clean bootJar
-java -jar  build/libs/slasify.jar
+#### Run
+java -jar slasify.jar
 http://localhost:8080
 
 
