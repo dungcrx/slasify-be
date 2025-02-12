@@ -57,7 +57,6 @@ curl --location --request POST 'http://localhost:8080/messages/post'  \
 
 
 curl --location --request GET 'http://localhost:8080/messages/all'  \
--H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.09999.SQWUuSge2SmyTQeq2zl2SKlO-zibxDPJEb1htLXMKQ0" \
 -H "Content-Type: application/json" \
 
 #####
@@ -78,6 +77,6 @@ curl --location --request POST 'http://localhost:8080/comments'\
 -H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkdW5ncGhhbiIsImlhdCI6MTczOTIwNDQ5NywiZXhwIjoxNzQxNzk2NDk3fQ.SQWUuSge2SmyTQeq2zl2SKlO-zibxDPJEb1htLXMKQ0" \
 -d '{
 "messageId": 1,
-"parentCommentId": 3,
+"parentCommentId": 1,
 "content": "reply on reply 3"
 }'
