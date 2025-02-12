@@ -22,9 +22,9 @@ java -jar slasify.jar
 http://localhost:8080
 
 
-### List Curl
+###### List Curl
 
-
+```
 curl --location --request POST 'http://localhost:8080/auth/register' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -80,3 +80,7 @@ curl --location --request POST 'http://localhost:8080/comments'\
 "parentCommentId": 1,
 "content": "reply on reply 3"
 }'
+
+
+```
+
